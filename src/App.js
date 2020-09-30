@@ -36,26 +36,17 @@ class App extends React.Component {
   render() {
     console.log(this.state.loggedIn)
     return (
-      <Switch>
-  {this.state.loggedIn?
-    <Route path="/rooms" render = { () => 
         <div className="App">
         <header className="App-header">
         <MyNav user={this.state.user_title} />
         </header>
+        {this.state.loggedIn?
         <RoomsContainer userRender={this.userRender} />  
-        </div> } />
         :
-        <Route path="/login" render = { () => 
-        <div className="App">
-        <header className="App-header">
-        <MyNav user={this.state.user_title} />
-        </header>
         <Login handleSubmit={this.handleSubmit} /> 
-        </div> } />
-  }
-       </Switch> 
+         } 
+         </div>  
     );
   }
 }
-export default withRouter(App)
+export default App
